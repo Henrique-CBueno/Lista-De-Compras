@@ -5,12 +5,16 @@ let del = document.querySelector("section.principal form ul li svg");
 let error = document.getElementById("error")
 let errorLeave = document.getElementById("errorLeave")
 
+document.addEventListener('DOMContentLoaded', loadListFromLocalStorage);
+
+
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     if (input.value.length > 0) {
         if (!isItemAlreadyExists(input.value)) {
             createListItem(input.value);
+            saveListToLocalStorage();
         } else {
             alert("Item já existe!");
         }
@@ -142,6 +146,7 @@ function createListItem(name) {
 
     svg.addEventListener("click", () => {
         removeList(name); // Chama a função removeList passando o nome do item
+        saveListToLocalStorage();
         error.classList.remove("delete")
         error.classList.add("show-alert")
     });
@@ -156,4 +161,28 @@ function removeList(name){
         ul.removeChild(itemToRemove); // Remove o item da lista
     }
 
+}
+
+
+function saveListToLocalStorage() {
+    const items = [];
+    const listItems = ul.querySelectorAll("li");
+
+    listItems.forEach(item => {
+        const name = item.querySelector("h2").textContent.trim();
+        items.push(name);
+    });
+
+    localStorage.setItem("listItems", JSON.stringify(items)); // Salvar lista no localStorage
+}
+
+// Função para carregar os itens do localStorage
+function loadListFromLocalStorage() {
+    const savedItems = JSON.parse(localStorage.getItem("listItems"));
+
+    if (savedItems && savedItems.length > 0) {
+        savedItems.forEach(item => {
+            createListItem(item);
+        });
+    }
 }
