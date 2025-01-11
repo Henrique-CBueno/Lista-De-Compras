@@ -96,6 +96,8 @@ section.principal{
 
         ul{
             margin-top: 2.5rem;
+            display: grid;
+            gap: 1rem;
             li{
                 list-style-type: none;
                 display: flex;
@@ -106,6 +108,14 @@ section.principal{
                 border-radius: .875rem;
                 justify-content: space-between;
                 padding-inline: .75rem;
+
+                svg{
+                    cursor: pointer;
+                }
+
+                svg:hover path{
+                    fill: var(--color-danger);
+                }
 
                 .checkName{
                     display: flex;
@@ -152,9 +162,57 @@ section.principal{
     }   
     
     
-
-
-
+    .show-alert{
+        animation: entry 2s both ease;
+        margin-top: 2.25rem;
+        background-color: var(--color-danger);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 1rem;
+        padding-inline: 1rem;
+        padding-block: .75rem;
+        
     
+        .msg{
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+    
+            h2{
+                font: var(--label);
+                color: var(--always-white);
+            }
+        }
 
+    }
+
+
+    .delete{
+        display: none;
+    }
+
+}
+
+
+
+
+@keyframes entry {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+    
+}
+
+@keyframes leave {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+    
 }

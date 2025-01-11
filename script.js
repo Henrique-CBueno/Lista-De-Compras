@@ -1,6 +1,9 @@
 let form = document.querySelector("section.principal form");
 let input = document.querySelector('section.principal form .newItem input[type="text"]');
 let ul = document.querySelector("section.principal form ul");
+let del = document.querySelector("section.principal form ul li svg");
+let error = document.getElementById("error")
+let errorLeave = document.getElementById("errorLeave")
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -18,6 +21,42 @@ form.addEventListener("submit", (e) => {
     input.value = "";
 });
 
+
+
+
+errorLeave.addEventListener("click", (e) => {
+    error.classList.remove("show-alert")
+    error.classList.add("delete")
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function isItemAlreadyExists(name) {
     const items = ul.querySelectorAll("li");
 
@@ -31,8 +70,19 @@ function isItemAlreadyExists(name) {
     return false;
 }
 
+
+
+
+
+
+
+
+
+
+
 function createListItem(name) {
     const li = document.createElement("li");
+    li.classList.add(name)
 
     const div = document.createElement("div");
     div.classList.add("checkName");
@@ -88,4 +138,22 @@ function createListItem(name) {
     li.appendChild(svg);
 
     ul.appendChild(li);
+
+
+    svg.addEventListener("click", () => {
+        removeList(name); // Chama a função removeList passando o nome do item
+        error.classList.remove("delete")
+        error.classList.add("show-alert")
+    });
+}
+
+
+function removeList(name){
+    
+    const itemToRemove = ul.querySelector(`li.${name}`); // Procura pelo <li> com a classe igual ao nome
+    
+    if (itemToRemove) {
+        ul.removeChild(itemToRemove); // Remove o item da lista
+    }
+
 }
