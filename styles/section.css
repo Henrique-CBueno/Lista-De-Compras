@@ -1,0 +1,93 @@
+section.principal{
+    header{
+        margin-top: 1.5625rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .4375rem;
+
+        h1{
+            font-family: "Sora", serif;
+            font-weight: 700;
+            font-size: 1.6669rem;
+            letter-spacing: -2%;
+            line-height: 40px;
+            color: var(--content-secondary);
+        }
+    }
+
+    .title{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-top: 4.875rem;
+
+
+        h1{
+            font: var(--title);
+            color: var(--content-primary);
+        }
+    }
+
+    .newItem{
+        margin-top: 2.75rem;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 1rem;
+
+        input{
+            display: grid;
+            
+            font: 400 1rem/140% 'Inter', sans-serif;
+            color: var(--content-primary);
+
+            align-items: center;
+            height: 2.75rem;
+            width: 100%;
+            background-color: var(--background-secondary);
+            border: solid 2px var(--border-primary);
+            border-radius: .75rem;
+            padding-inline: 1.125rem;
+            transition: all .3s ease;
+
+            &::placeholder{
+                font: 400 1rem/140% 'Inter', sans-serif;
+                color: var(--content-tertiary);
+                transition: all .3s ease;
+            }
+
+            &:hover{
+                outline: none;
+                border: solid 2px var(--border-hover);
+            }
+
+            &:focus, &:focus-within, &:active{
+                outline: none;
+                border: solid 2px var(--color-brand);
+                &::placeholder{
+                    color: var(--content-primary);
+                }
+            }
+        }
+
+        button{
+            background-color: var(--color-brand);
+            border: none;
+            cursor: pointer;
+            border-radius: .75rem;
+            transition: transform 0.1s ease-in-out; /* Transição suave para o efeito de transformação */
+
+
+            p{
+                font: var(--label);
+                color: var(--always-white);
+            }
+
+            &:active {
+                transform: scale(0.95); /* Diminui o tamanho para 95% quando pressionado */
+              }
+        }
+
+    }
+}
