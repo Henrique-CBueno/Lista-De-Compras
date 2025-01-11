@@ -30,64 +30,124 @@ section.principal{
         }
     }
 
-    .newItem{
-        margin-top: 2.75rem;
-        display: grid;
-        grid-auto-flow: column;
-        gap: 1rem;
+    form{
 
-        input{
+        .newItem{
+            margin-top: 2.75rem;
             display: grid;
-            
-            font: 400 1rem/140% 'Inter', sans-serif;
-            color: var(--content-primary);
+            grid-auto-flow: column;
+            gap: 1rem;
 
-            align-items: center;
-            height: 2.75rem;
-            width: 100%;
-            background-color: var(--background-secondary);
-            border: solid 2px var(--border-primary);
-            border-radius: .75rem;
-            padding-inline: 1.125rem;
-            transition: all .3s ease;
-
-            &::placeholder{
+            input{
+                display: grid;
+                
                 font: 400 1rem/140% 'Inter', sans-serif;
-                color: var(--content-tertiary);
+                color: var(--content-primary);
+
+                align-items: center;
+                height: 2.75rem;
+                width: 100%;
+                background-color: var(--background-secondary);
+                border: solid 2px var(--border-primary);
+                border-radius: .75rem;
+                padding-inline: 1.125rem;
                 transition: all .3s ease;
-            }
 
-            &:hover{
-                outline: none;
-                border: solid 2px var(--border-hover);
-            }
-
-            &:focus, &:focus-within, &:active{
-                outline: none;
-                border: solid 2px var(--color-brand);
                 &::placeholder{
-                    color: var(--content-primary);
+                    font: 400 1rem/140% 'Inter', sans-serif;
+                    color: var(--content-tertiary);
+                    transition: all .3s ease;
+                }
+
+                &:hover{
+                    outline: none;
+                    border: solid 2px var(--border-hover);
+                }
+
+                &:focus, &:focus-within, &:active{
+                    outline: none;
+                    border: solid 2px var(--color-brand);
+                    &::placeholder{
+                        color: var(--content-primary);
+                    }
+                }
+            }
+
+            button{
+                background-color: var(--color-brand);
+                border: none;
+                cursor: pointer;
+                border-radius: .75rem;
+                transition: transform 0.1s ease-in-out; /* Transição suave para o efeito de transformação */
+
+
+                p{
+                    font: var(--label);
+                    color: var(--always-white);
+                }
+
+                &:active {
+                    transform: scale(0.95); /* Diminui o tamanho para 95% quando pressionado */
+                }
+            }
+
+        }
+
+        ul{
+            margin-top: 2.5rem;
+            li{
+                list-style-type: none;
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 3.06rem;
+                background-color: var(--background-secondary);
+                border-radius: .875rem;
+                justify-content: space-between;
+                padding-inline: .75rem;
+
+                .checkName{
+                    display: flex;
+                    align-items: center;
+                    gap: .75rem;
+
+
+                    h2{
+                        font: var(--paragraph);
+                        color: var(--content-secondary);
+                    }
+
+                    input[type = "checkbox"]{
+
+                        display: none;
+
+                    }
+
+                    
+                    label {
+                        display: inline-block;
+                        width: 1rem;
+                        height: 1rem;
+                        background-image: url(../assets/checkdefoult.svg); /* Coloque o caminho correto para o seu SVG */
+                        background-size: cover;
+                        cursor: pointer;
+                        transition: all .2s ease;
+                        
+                        
+                        &:hover{
+                            background-image: url(../assets/checkhover.svg); /* Coloque o caminho correto para o seu SVG */
+                            background-size: cover;
+                            width: 1rem;
+                            height: 1rem;
+                        }
+                    }
+                    
+                    input[type="checkbox"]:checked + label {
+                        background-image: url(../assets/checkboxchek.svg); /* Coloque o caminho para o SVG do "marcado" */
+                    }
                 }
             }
         }
+    }    
 
-        button{
-            background-color: var(--color-brand);
-            border: none;
-            cursor: pointer;
-            border-radius: .75rem;
-            transition: transform 0.1s ease-in-out; /* Transição suave para o efeito de transformação */
-
-
-            p{
-                font: var(--label);
-                color: var(--always-white);
-            }
-
-            &:active {
-                transform: scale(0.95); /* Diminui o tamanho para 95% quando pressionado */
-              }
-        }
-
-    }
 }
