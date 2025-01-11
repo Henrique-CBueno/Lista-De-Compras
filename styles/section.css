@@ -31,7 +31,8 @@ section.principal{
     }
 
     form{
-
+        display: grid;
+        gap: .75rem;
         .newItem{
             margin-top: 2.75rem;
             display: grid;
@@ -148,6 +149,12 @@ section.principal{
                 }
             }
         }
-    }    
+    }   
+    
+    
+
+
+
+    
 
 }
