@@ -196,6 +196,25 @@ section.principal{
 
 
 
+@media (max-width: 600px) {
+    section.principal{
+        padding-inline: 1rem;
+        form{
+            .newItem{
+                display: grid;
+                grid-auto-flow: row;
+
+                button{
+                    height: 2.75rem;
+
+                }
+            }
+        }
+    }
+}
+
+
+
 
 @keyframes entry {
     from{
